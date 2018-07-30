@@ -1,35 +1,5 @@
 //contentScript测试脚本
 
-
-function test1(){
-	get_betting().then(function(result){
-		console.log(result);
-		
-	})
-}
-
-function test2(){
-	let betting_record={
-		'GD11Y':[],
-		'SH11Y':[],
-		'SD11Y':[],
-		'JX11Y':[]
-	}
-	let betting_info1 = {
-	bet_time : "07-21 09:57:08",
-	issue : "20180721-06",
-	bet_nums : 218,
-	bet_money : 0,
-	bet_winmoney : 0,
-	bet_result :0,
-	bet_status : '未开奖'
-	
-}
-	betting_record["GD11Y"].push(betting_info1);
-	chrome.storage.local.set({"betting_record":betting_record},function(){
-	console.log('写入成功');
-})
-}
 function test3(){
 		chrome.storage.local.get(null,function(result){
 			console.log(result);
@@ -38,37 +8,40 @@ function test3(){
 	})
 }
 
-function test3a(){
-		chrome.storage.local.get(["bet_record"],function(result){
-			//console.log(result);
-			let bet_record = result.bet_record;
-				//console.log(bet_record["GD11Y"]);
-				//bet_record["GD11Y"][0].bet_status = '已投注';
-				//bet_record["GD11Y"][0].status = '未开奖';
-				bet_record["GD11Y"][0].multiple = 2;
-				
-				chrome.storage.local.set({"bet_record":bet_record},function(){
-					console.log('修改成功');
-				})
-			
+//状态显示
+function show_status(){
+	chrome.storage.local.get(["bet_record"],function(result){
+		let danwei = '';
+		let danwei_info={
+			li:'厘',
+			fen:'分',
+			jiao:'角',
+			yuan:'元'
+		};
+		let lottery_info = {
+			GD11Y:'广东',
+			SH11Y:'上海',
+			SD11Y:'山东',
+			JX11Y:'江西'
+		};
+		let bei_m = '';
+		if(bei_model=='bad_model'){
+			bei_m='未中奖时翻倍';
+		}else if(bei_model=='continuous_model'){
+			bei_m='一直连续翻倍';
+		}
+		
+		console.log('%c当前自动投注的参数如下:','color:red');
+		console.log(`%c当前投注站点:%c${lottery_info[lottery_0]}`,'color:green','color:red');
+		console.log(`%c当前每注金额:%c${multiple_0}${danwei_info[result.bet_record[lottery_0][0].model]}`,'color:green','color:red');
+		console.log(`%c当前的翻倍模式是:%c${bei_m}`,'color:green','color:red');
+		console.log(`%c当前连续翻倍的次数:%c${bei_num}`,'color:green','color:red');
+		
+		
 	})
 }
-function test11(){
- return new Promise(function(resolve,reject){
-	 //reject(new Error("出错了"));
-	 Promise.reject('出错了哟2222');
-	 //resolve('正确 了');
- })
-}
- function test4(){
-	 test11().then(function(a){
-		 console.log(a);
-		 console.log('正常了');
-	 }).catch(function(e){
-		 //console.log(e);
-		 console.log("出错了...啊啊啊");
-	 })
- }
+ 
+ 
  
 //任务开始
 console.log('启动系统OK,请设置投注参数:');

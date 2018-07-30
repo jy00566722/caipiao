@@ -3,6 +3,7 @@ var lottery_1 =  document.getElementById('lottery');
 var model_1 =  document.getElementById('model');
 var multiple_1 =  document.getElementById('multiple');
 var botton_2 =  document.getElementById('button_2');
+var botton_3 =  document.getElementById('button_3');
 var bei_num_1 =  document.getElementById('bei_num');
 //var bei_model = document.getElementsByName('bei_model');
 
@@ -82,6 +83,13 @@ botton_1.onclick = function(){
 botton_2.onclick= function(){
 	sendMessageToContentScript({
 				cmd:'stop'
+	},function(response){
+		console.log('来自content的回复：'+response);
+	})
+}
+botton_3.onclick= function(){
+	sendMessageToContentScript({
+				cmd:'status'
 	},function(response){
 		console.log('来自content的回复：'+response);
 	})

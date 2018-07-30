@@ -23,7 +23,10 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
 		multiple_0 = 0;
 		console.log('接收到停止指令,清空投注信息');
 	};
-    sendResponse('收到了消息,开始投注');
+	if(request.cmd=='status'){
+		show_status();
+	};
+    sendResponse('收到了消息...');
 });
 
 //开奖信息获取
