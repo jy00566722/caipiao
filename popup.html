@@ -21,12 +21,22 @@
 </select>
 <br>
 <span>设置金额数字:</span>
-<input type="text" name ="multiple" id = "multiple" />
-<br>
+<input type="text" name ="multiple" id = "multiple" value="1"/>
+<br />
+<h3>倍投设置:</h3>
+<h4>选择翻倍模式:</h4>
+<span>未中翻倍</span>
+<input type="radio" name="bei_model" id ='r1' checked="checked" value="bad_model" /><br />
+<span>始终翻倍</span>
+<input type="radio" name="bei_model" id ='r2' value="continuous_model" /><br /><br />
+<h4>翻倍次数:</h4>
+<input type="text" name = "bei_num" id="bei_num" value="3"/>
+<br />
 
-<button id = "button_1">开始</button>
+<button id = "button_1">开始</button><br>
 <button id = "button_2">停止</button>
 
 </body>
 <script src = "popup.js"></script>
+
 </html>

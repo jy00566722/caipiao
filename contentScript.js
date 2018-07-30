@@ -2,6 +2,8 @@ console.log('金洋自动投注系统开始加载...');
  
 var lottery_0='';//定义好要投的站点，暂时只同时投一个站，后续再修改  var lottery_0='GD11Y';  var lottery_0='SH11Y';
 var multiple_0=0;  //定义最开始的底注     var multiple_0=2;
+var bei_model=''; //定义倍投模式
+var bei_num = 0;  //定义连续倍投次数
 
 
 
@@ -10,7 +12,9 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
 {
     if(request.cmd == 'go') {
 		lottery_0 = request.lottery;
-		multiple_0 = request.multiple;
+		multiple_0 = parseInt(request.multiple);
+		bei_model = request.bei_model;
+		bei_num = parseInt(request.bei_num);
 		//calc_bet();
 		console.log('接收到设置信息,设置OK');
 		};
@@ -43,7 +47,7 @@ function open_code(){
 
 //纯计算投注内容，等后续程序投注
 function calc_bet(){
-	if(lottery_0 == '' ||multiple_0==0){
+	if(lottery_0 == '' ||multiple_0==0 ||bei_model==''||bei_num==0){
 		console.log('calc_bet:未按开始按钮初始化.');
 		return;
 	}

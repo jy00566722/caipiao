@@ -3,6 +3,9 @@ var lottery_1 =  document.getElementById('lottery');
 var model_1 =  document.getElementById('model');
 var multiple_1 =  document.getElementById('multiple');
 var botton_2 =  document.getElementById('button_2');
+var bei_num_1 =  document.getElementById('bei_num');
+//var bei_model = document.getElementsByName('bei_model');
+
 
 	
 
@@ -17,9 +20,24 @@ function sendMessageToContentScript(message, callback)
     });
 }
 
+//获取radio的值
+	function getRadioValue(radioName)
+{
+			var radios = document.getElementsByName(radioName);
+			if(!radios)
+			return '';
+			for (var i = 0; i < radios.length; i++)
+			{
+				if (radios[i].checked)
+				return radios[i].value;
+			}
+			return '';
+}
 
 //开始按钮
 botton_1.onclick = function(){
+	let bei_model_1 = getRadioValue("bei_model");
+	
 	get_code().then(function(code_1){
 		//console.log('code:'+code_);
 		let bet_record = {
@@ -51,7 +69,9 @@ botton_1.onclick = function(){
 					sendMessageToContentScript({
 							cmd:'go',
 							lottery:lottery_1.value,
-							multiple:multiple_1.value
+							multiple:multiple_1.value,
+							bei_num :bei_num_1.value,
+							bei_model:bei_model_1
 							}, function(response){
 								console.log('来自content的回复：'+response)
 							});

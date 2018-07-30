@@ -47,7 +47,7 @@ function get_betting(){
 
 //定期处理用户投注信息调用函数  是否中奖，奖金，赢亏的处理
 function do_betting(){
-		if(lottery_0 == '' || multiple_0==0){
+		if(lottery_0 == '' ||multiple_0==0 ||bei_model==''||bei_num==0){
 		console.log('do_betting:未按开始按钮初始化.');
 		return;
 	}
@@ -102,24 +102,46 @@ function do_betting(){
 				}
 			}
 			let winOrloss = winMoney - money;
-			//处理连续未中信息
-			if(status=='已派奖'){
-				bad_times=0;
-			}else if(status=='未中奖'){	
+			
+			
+			
+			//处理连续未中信息  
+			
+			if(bei_model=='bad_model'){
+						if(status=='已派奖'){
+							bad_times=0;
+						}else if(status=='未中奖'){	   
+									if(bet_list[lottery_0].length>1){
+											let c_issue = bet_list[lottery_0][1].issue;
+											let c_bad_times = bet_list[lottery_0][1].bad_times;
+											if(c_issue.substr(0,9)+('00'+(parseInt(c_issue.substr(-2))+1)).substr(-2) == b_issue){
+														bad_times = c_bad_times +1;
+													}
+											if(bad_times==bei_num){
+												bad_times=0;//归0
+											}
+									}else{
+										bad_times=1;
+									}
+								
+						} 
+			}else if(bei_model=='continuous_model'){
 						if(bet_list[lottery_0].length>1){
-								let c_issue = bet_list[lottery_0][1].issue;
-								let c_bad_times = bet_list[lottery_0][1].bad_times;
-								if(c_issue.substr(0,9)+('00'+(parseInt(c_issue.substr(-2))+1)).substr(-2) == b_issue){
-											bad_times = c_bad_times +1;
-										}
-								if(bad_times==5){
-									bad_times=0;//5次归0
-								}
-						}else{
-							bad_times=1;
-						}
-					
-			}
+							let c_issue = bet_list[lottery_0][1].issue;
+							let c_bad_times = bet_list[lottery_0][1].bad_times;
+							if(c_issue.substr(0,9)+('00'+(parseInt(c_issue.substr(-2))+1)).substr(-2) == b_issue){
+										bad_times = c_bad_times +1;
+									}
+							if(bad_times==bei_num){
+								bad_times=0;//归0
+							}
+					}else{
+						bad_times=1;
+					}	
+
+			}else{
+				console.log("倍投模式是什么啊?")
+			}	
 			bet_list[lottery_0][0].money = money;
 			bet_list[lottery_0][0].winMoney = winMoney;
 			bet_list[lottery_0][0].status = status;

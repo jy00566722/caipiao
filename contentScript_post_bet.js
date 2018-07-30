@@ -1,5 +1,5 @@
 function post_bet(){
-		if(lottery_0 == '' ||multiple_0==0){
+		if(lottery_0 == '' ||multiple_0==0 ||bei_model==''||bei_num==0){
 		console.log('post_bet:未按开始按钮初始化.');
 		return;
 	}
