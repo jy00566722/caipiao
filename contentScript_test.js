@@ -15,7 +15,7 @@ function winorloss(){
 		let aMoney =0;
 		let aBet=0;
 		for(let i=0;i<list.length;i++){
-			aMoney += list[i].winMoney;
+			aMoney += list[i].winOrloss;
 			if(list[i].bet_status=='已投注'){
 				aBet++;
 			}
