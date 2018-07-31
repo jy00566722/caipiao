@@ -20,9 +20,9 @@ function winorloss(){
 				aBet++;
 			}
 		}
-		console.log('%c====投注汇总====:','color:lime')
+		console.log('%c========投注汇总========:','color:lime')
 		console.log(`%c本轮一共连续投了%c${aBet}注`,'color:green','color:red');
-		console.log(`%c本轮连续投注总赢亏为:%c${aMoney}`,'color:green','color:red');
+		console.log(`%c本轮连续投注总赢亏为:%c${aMoney.toFixed(4)}`,'color:green','color:red');
 	})
 }
 
@@ -49,7 +49,7 @@ function show_status(){
 			bei_m='一直连续翻倍';
 		}
 		
-		console.log('%c当前自动投注的参数如下:','color:red');
+		console.log('%c========当前自动投注的参数如下========:','color:lime');
 		console.log(`%c当前投注站点:%c${lottery_info[lottery_0]}`,'color:green','color:red');
 		console.log(`%c当前每注金额:%c${multiple_0}${danwei_info[result.bet_record[lottery_0][0].model]}`,'color:green','color:red');
 		console.log(`%c当前的翻倍模式是:%c${bei_m}`,'color:green','color:red');
