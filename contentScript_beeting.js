@@ -101,7 +101,7 @@ function do_betting(){
 					status = order_list[i].statusRemark;
 				}
 			}
-			let winOrloss = winMoney - money;
+			let winOrloss = (winMoney - money).toFixed(3);
 			
 			
 			

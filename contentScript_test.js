@@ -8,6 +8,24 @@ function test3(){
 	})
 }
 
+//计算总的赢亏
+function winorloss(){
+	chrome.storage.local.get(["bet_record"],function(result){
+		let list = result.bet_record[lottery_0];
+		let aMoney =0;
+		let aBet=0;
+		for(let i=0;i<list.length;i++){
+			aMoney += list[i].winMoney;
+			if(list[i].bet_status=='已投注'){
+				aBet++;
+			}
+		}
+		console.log('%c====投注汇总====:','color:lime')
+		console.log(`%c本轮一共连续投了%c${aBet}注`,'color:green','color:red');
+		console.log(`%c本轮连续投注总赢亏为:%c${aMoney}`,'color:green','color:red');
+	})
+}
+
 //状态显示
 function show_status(){
 	chrome.storage.local.get(["bet_record"],function(result){
@@ -36,7 +54,7 @@ function show_status(){
 		console.log(`%c当前每注金额:%c${multiple_0}${danwei_info[result.bet_record[lottery_0][0].model]}`,'color:green','color:red');
 		console.log(`%c当前的翻倍模式是:%c${bei_m}`,'color:green','color:red');
 		console.log(`%c当前连续翻倍的次数:%c${bei_num}`,'color:green','color:red');
-		
+		winorloss();
 		
 	})
 }
