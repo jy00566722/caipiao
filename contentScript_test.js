@@ -15,7 +15,7 @@ function winorloss(){
 		let aMoney =0;
 		let aBet=0;
 		for(let i=0;i<list.length;i++){
-			console.log(list[i].winOrloss);
+			//console.log(list[i].winOrloss);
 			aMoney = aMoney + parseFloat(list[i].winOrloss);
 			if(list[i].bet_status=='已投注'){
 				aBet++;
@@ -24,7 +24,7 @@ function winorloss(){
 		console.log('%c========投注汇总========:','color:lime')
 		console.log(`%c本轮一共连续投了%c${aBet}注`,'color:green','color:red');
 		//console.log(`%c本轮连续投注总赢亏为:%c${aMoney}`,'color:green','color:red');
-		console.log(`%c本轮连续投注总赢亏为:%c${aMoney}`,'color:green','color:red');
+		console.log(`%c本轮连续投注总赢亏为:%c${aMoney.toFixed(4)}`,'color:green','color:red');
 	})
 }
 
