@@ -60,7 +60,7 @@ function calc_bet(){
 			return;
 		}
 		if(result[0][0].code === null){
-			console.log('calc_bet:开奖中,无法计算下一注内容，稍等');
+			//console.log('calc_bet:开奖中,无法计算下一注内容，稍等');
 			return;
 		}	
 		
@@ -69,11 +69,11 @@ function calc_bet(){
 			return;
 		}
 		if(result[1][lottery_0][0].bet_status =='待投注'){
-			console.log('calc_bet:有"待投注"记录，本次不计算投注内容');
+			//console.log('calc_bet:有"待投注"记录，本次不计算投注内容');
 			return;
 		}
 		if(result[1][lottery_0][0].status=='未开奖'){
-			console.log('calc_bet:有"待开奖"记录,本次不计算投注内容');
+			//console.log('calc_bet:有"待开奖"记录,本次不计算投注内容');
 			return;
 		}
 		let issue = result[0][0].issue;  //上一期开奖期号

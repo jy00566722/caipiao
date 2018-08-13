@@ -29,7 +29,7 @@ function post_bet(){
 				console.log(e);
 			})
 		}else{
-			console.log('post_bet:没有"未投注"状态的记录...');
+			//console.log('post_bet:没有"未投注"状态的记录...');
 		}
 	}).catch(function(e){
 		console.log(e);

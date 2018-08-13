@@ -56,27 +56,27 @@ function do_betting(){
 		let order_list = result[0];
 		let bet_list = result[1];
 		if(bet_list[lottery_0].length==0){
-			console.log('do_betting:还没有投注信息,本次不能计算投注结果');
+			//console.log('do_betting:还没有投注信息,本次不能计算投注结果');
 			return;
 		}
 		if(order_list.data.totalCount ==0){
-			console.log('do_betting:还没有订单信息，本次不能计算投注结果');
+			//console.log('do_betting:还没有订单信息，本次不能计算投注结果');
 			return;
 		}
 		if(order_list.data.list[0].statusRemark=='未开奖'){
-			console.log('do_betting:有订单处于未开奖状态,先不处理开奖信息，等待下一次');
+			//console.log('do_betting:有订单处于未开奖状态,先不处理开奖信息，等待下一次');
 			return;
 		}
 		if(bet_list[lottery_0][0].status=='未投注'){
-			console.log('do_betting:有记录还没有投注,本次不计算中奖信息');
+			//console.log('do_betting:有记录还没有投注,本次不计算中奖信息');
 			return;
 		}
 		if(bet_list[lottery_0][0].status=='已派奖'){
-			console.log('do_betting:最后一期计算完毕，本次不用计算');
+			//console.log('do_betting:最后一期计算完毕，本次不用计算');
 			return;
 		}
 		if(bet_list[lottery_0][0].status=='未中奖'){
-			console.log('do_betting:最后一期计算完毕，本次不用计算');
+			//console.log('do_betting:最后一期计算完毕，本次不用计算');
 			return;
 		}
 		

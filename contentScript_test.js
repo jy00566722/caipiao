@@ -79,9 +79,11 @@ function go_clear(){
 	console.clear();
 	console.log('%c金洋自动投注%c清理日志成功,还在运行中','color:green','color:black');
 }
+/*(
 setTimeout(function(){
 	setInterval(go_clear,300000);
 },180000)
+*/
 
 
 
