@@ -59,12 +59,12 @@ function a_post(info){
 				content:info.content,
 				model:info.model,
 				multiple:info.multiple,
-				code:info.code,
+				code:info.code*1, //2019-1-7 更新 这个post变为了数字，不是字符串
 				compress:false
 			}];
 			$.ajax({
 				"type":"POST",
-				"url":'http://jya.xinw188.com/yx/u/api/game-lottery/add-order',
+				"url":'http://ya.jyang288.com/yx/u/api/game-lottery/add-order',
 				"data":{
 					text:JSON.stringify(post_data)
 					},

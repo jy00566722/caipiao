@@ -10,7 +10,7 @@ function search_order(){
 		
 			$.ajax({
 			"type":"POST",
-			"url":'http://jya.xinw188.com/yx/u/api/game-lottery/search-order',
+			"url":'http://ya.jyang288.com/yx/u/api/game-lottery/search-order',
 			"data":{
 				sTime:sTime_,
 				eTime:eTime_,

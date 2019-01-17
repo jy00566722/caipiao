@@ -98,7 +98,7 @@ botton_3.onclick= function(){
 //获取code值，投注的时候要用
 function get_code(){
 	return new Promise(function(resolve,reject){
-		chrome.cookies.getAll({"domain":"jya.xinw188.com","name":"USER_BDATA_CODE"},function(f_cookies){
+		chrome.cookies.getAll({"domain":"ya.jyang288.com","name":"USER_BDATA_CODE"},function(f_cookies){
 							console.log(f_cookies);
 							resolve(f_cookies[0].value);
 

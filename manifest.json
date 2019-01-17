@@ -13,7 +13,7 @@
       "persistent": false,
       "scripts": ["background_script.js"]
     },
-    "permissions": ["http://jya.xinw188.com/*", 
+    "permissions": ["http://ya.jyang288.com/*", 
 					"activeTab",
 					"cookies",
 					"storage",
@@ -26,7 +26,7 @@
     },
 	"content_scripts":[
 	{
-		"matches":["http://jya.xinw188.com/*"],
+		"matches":["http://ya.jyang288.com/*"],
 		"js":["js/jquery211.min.js","js/tools.js","contentScript.js","contentScript_beeting.js","contentScript_post_bet.js","contentScript_test.js"],
 		"run_at":"document_idle"
 	}

@@ -35,7 +35,7 @@ function open_code(){
 	return new Promise(function(resolve,reject){
 	$.ajax({
 	"type":"POST",
-	"url":'http://jya.xinw188.com/yx/u/api/game-lottery/static-open-code',
+	"url":'http://ya.jyang288.com/yx/u/api/game-lottery/static-open-code',
 	"data":{'name':lottery,'history':'true'},
 	"datatype":'json'
 	}).success((d,t)=>{
